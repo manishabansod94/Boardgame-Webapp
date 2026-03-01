@@ -69,7 +69,7 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                script {
-                   withDockerRegistry(credentialsId: 'docker-cred', toolName: '') {
+                   withDockerRegistry(credentialsId: 'docker-cred') {
                             sh "docker build -t ganeshperumal007/boardshack:latest ."
                     }
                }
@@ -85,7 +85,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                script {
-                   withDockerRegistry(credentialsId: 'docker-cred', toolName: '') {
+                   withDockerRegistry(credentialsId: 'docker-cred') {
                             sh "docker push ganeshperumal007/boardshack:latest"
                     }
                }
